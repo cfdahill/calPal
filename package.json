@@ -4,23 +4,25 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "server": "node server.js --ignore",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
-    "build": "node scripts/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "installDeps": "yarn && cd client && yarn"
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && yarn install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mmarovich/MERN-starter.git"
+    "url": "https://github.com/cfdahill/calPal"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mmarovich/MERN-starter/issues"
+    "url": "https://github.com/cfdahill/calPal/issues"
   },
-  "homepage": "https://github.com/mmarovich/MERN-starter#readme",
+  "homepage": "https://github.com/cfdahill/calPal#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^2.0.1",
@@ -28,6 +30,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "browser-router": "^0.2.0",
+    "concurrently": "^3.5.1",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
@@ -35,10 +38,12 @@
     "express-session": "^1.15.6",
     "flash": "^1.1.0",
     "history": "^4.7.2",
+    "if-env": "^1.0.4",
     "method-override": "~2.3.6",
     "moment-timezone": "^0.5.21",
     "mongoose": "^5.1.7",
     "morgan": "^1.9.0",
+    "nodemon": "^1.11.0",
     "npm": "^6.1.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
@@ -52,9 +57,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "semantic-ui-css": "^2.3.2",
-    "semantic-ui-react": "^0.81.3",
-    "concurrently": "^3.5.1",
-    "nodemon": "^1.11.0"
+    "semantic-ui-react": "^0.81.3"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
