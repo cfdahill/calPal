@@ -17,7 +17,7 @@ class CalendarWrapper extends React.Component {
     this.handleCreatedContentSelection = this.handleCreatedContentSelection.bind(this);
     this.handleSaveClicked = this.handleSaveClicked.bind(this);
     this.handleCheckBox = this.handleCheckBox.bind(this);
-    this.removeSched = this.removeSched.bind(this);
+    // this.removeSched = this.removeSched.bind(this);
 
     this.state = {
       checkBox: [],

@@ -34,18 +34,18 @@ class Sidebar extends React.Component {
     });
   }
 
-  delete = (e, id) => {
-    this.setState({open: true, delete: id});
-  }
+  // delete = (e, id) => {
+  //   this.setState({open: true, delete: id});
+  // }
 
-  cancel = () => {
-    this.setState({open:false});
-  }
+  // cancel = () => {
+  //   this.setState({open:false});
+  // }
 
-  confirm = (id) => {
-    this.setState({open:false});
-    this.props.removeSched(id);
-  }
+  // confirm = (id) => {
+  //   this.setState({open:false});
+  //   this.props.removeSched(id);
+  // }
 
   render() {
     if (this.state.redirectTo) {
@@ -95,7 +95,7 @@ class Sidebar extends React.Component {
       <Button onClick={this.redirect} className="toCreate">Create a schedule</Button>
       
       
-      <Modal 
+      {/* <Modal 
             open={this.state.open}
             size="mini"
       >
@@ -104,7 +104,7 @@ class Sidebar extends React.Component {
             <Button onClick={this.cancel} >No</Button>
             <Button onClick={e => this.confirm(this.state.delete)}>Yes</Button>
         </Modal.Content>
-      </Modal>    
+      </Modal>     */}
     </div>
   )
   }
