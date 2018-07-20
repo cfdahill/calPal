@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node server.js --ignore",
     "client": "cd client && npm run start",
-    "start": "cross-env NODE_ENV=production MONGO_URL=yourMongoURL node index.js",
+    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
