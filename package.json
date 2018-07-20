@@ -6,7 +6,7 @@
   "scripts": {
     "server": "node server.js --ignore",
     "client": "cd client && npm run start",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "start": "cross-env NODE_ENV=production MONGO_URL=yourMongoURL node index.js",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "installDeps": "yarn && cd client && yarn"
@@ -52,7 +52,9 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "semantic-ui-css": "^2.3.2",
-    "semantic-ui-react": "^0.81.3"
+    "semantic-ui-react": "^0.81.3",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
