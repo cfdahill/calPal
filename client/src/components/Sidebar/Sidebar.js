@@ -58,21 +58,21 @@ class Sidebar extends React.Component {
     <div className="checkBoxField">
       {this.props.checkBox.map(item => (
         <div key={`checkBox${item.name}`}>
-        {item.name.length > 20 ?
         <Popup
           trigger={<Checkbox 
-            label={item.name.slice(0,20)}  
+            label={item.name}  
             defaultChecked = {true}
+            className = "checkboxes"
             onChange = {e => this.props.handleCheckBox(item._id)}
           />}
           content={item.name}
           className='popup'
-        /> :
-        <Checkbox 
-          label={item.name.slice(0,19)}  
+        /> 
+        {/* <Checkbox 
+          label={item.name}  
           defaultChecked = {true}
           onChange = {e => this.props.handleCheckBox(item._id)}
-        />}
+        /> */}
         {/* <Icon name='trash alternate outline' className='delete' onClick = {e => this.delete(e,item._id)}/> */}
         
         </div>

@@ -5,6 +5,7 @@ import Sidebar from "../Sidebar";
 import { Grid } from 'semantic-ui-react';
 import moment from "moment-timezone";
 import teams from "../../utils/teams";
+import "./CalendarWrapper.css";
 
 class CalendarWrapper extends React.Component {
   constructor(props){
@@ -37,16 +38,6 @@ class CalendarWrapper extends React.Component {
   }
 
   componentDidMount(){
-    //Get the names of all created schedules to push to created content dropdown
-    API.getSchedules()
-    .then(data => {
-      data.data.map((elem)=>this.setstate=({titles: this.state.titles.push({
-        text: elem.title,
-        value: elem._id
-      })
-    }));
-    })
-    .catch(err => console.log(err));
     const dataToSend = JSON.stringify({itemToSave: this.state.currentSelection, _id: localStorage.getItem("_id")})
     fetch("/api/calendar/user", {
       method: "POST",
@@ -111,7 +102,17 @@ class CalendarWrapper extends React.Component {
         }
       ]
       this.renderSavedEvents(fullSportsArr)
+    });
+    //Get the names of all created schedules to push to created content dropdown
+    API.getSchedules()
+    .then(data => {
+      data.data.map((elem)=>this.setstate=({titles: this.state.titles.push({
+        text: elem.title,
+        value: elem._id
+      })
+    }));
     })
+    .catch(err => console.log(err));
   }
 
   renderSavedEvents(searchArr) {
@@ -392,7 +393,7 @@ class CalendarWrapper extends React.Component {
       <div >
         <Grid>
           <Grid.Row>
-            <Grid.Column width={4}>
+            <Grid.Column id="sideBarCol" width={4}>
               <Sidebar 
                 // handleNBASelection={this.handleNBASelection} 
                 handleNHLSelection={this.handleNHLSelection} 

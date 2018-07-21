@@ -96,3 +96,27 @@ span{
 .ui.modal>.content{
     font-size:20px;
 }
+
+.fc-more{
+  color:black;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+}
+
+@media only screen and (max-height: 800px) {
+  .fc-event{
+    height:17px;
+  }
+}
+
+@media only screen and (max-height:740px) {
+  .fc-event{
+    height:17px;
+  }
+  .fc-time{
+    font-size:13px;
+  }
+  .fc-title{
+    font-size:13px;
+  }
+}
