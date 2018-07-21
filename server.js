@@ -71,9 +71,10 @@ app.use(routes)
 // mongoose.connect(MONGODB_URI);
 
 
-
-// //app.get("/test", function(req, res) {
-
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 app.get("/api/test", function(req, res) {
   res.send("Hello");
 })
