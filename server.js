@@ -36,7 +36,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
 
 
 // mongoose.connect("mongodb://localhost/CalPal", function(err, db) {
