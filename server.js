@@ -36,12 +36,6 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static("client/build"));
-};
-app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
 
 // mongoose.connect("mongodb://localhost/CalPal", function(err, db) {
 //   if(err) { return console.dir(err); }
@@ -64,7 +58,12 @@ app.use(passport.session()) // calls the deserializeUser
 
 app.use('/auth', require('./routes/auth'))
 app.use(routes)
-
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static("client/build"));
+};
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 // routes ======================================================================
 // app.use('/auth', authRoutes);
 // app.use('/test', testRoutes);
