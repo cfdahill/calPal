@@ -36,8 +36,12 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-// app.use(express.static("client/build"));
-
+if(process.env.NODE_ENV === 'production') {
+  app.use(express.static("client/build"));
+};
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 // mongoose.connect("mongodb://localhost/CalPal", function(err, db) {
 //   if(err) { return console.dir(err); }
@@ -71,10 +75,10 @@ app.use(routes)
 // mongoose.connect(MONGODB_URI);
 
 
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.get('/', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 app.get("/api/test", function(req, res) {
   res.send("Hello");
 })
