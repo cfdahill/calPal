@@ -60,18 +60,15 @@ app.use('/auth', require('./routes/auth'))
 app.use(routes)
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static("client/build"));
-app.use('/static', express.static(path.join(__dirname, './client/build/static')))
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, './client/build/'))
-    });
+// app.use('/static', express.static(path.join(__dirname, './client/build/static')))
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.join(__dirname, './client/build/'))
+//     });
 }
 // app.get('*', (request, response) => {
 //   response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 // });
-// routes ======================================================================
-// app.use('/auth', authRoutes);
-// app.use('/test', testRoutes);
-// app.use('/user', user)
+
 
 // const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/UserTest";
 // mongoose.Promise = Promise;
