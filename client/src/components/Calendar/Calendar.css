@@ -91,6 +91,17 @@ span{
 
 .link{
   color: black;
+  overflow:visible;
+  word-wrap:break-word;
+}
+
+.modalP{
+  overflow:visible;
+  word-wrap:break-word;
+}
+
+.toWatch{
+  margin-bottom:0px;
 }
 
 .ui.modal>.content{

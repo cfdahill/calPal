@@ -69,7 +69,7 @@ class Home extends Component {
                                 <div>
                                     <div className="signupwrapper">
                                         <div id="calPalHome" className="calPal">calPal</div>
-                                        <p className="intro">Get organized with calPal! The only app that lets you prioritize your personal schedule and add local events. Our open source model lets you share your events with the public so you can get the poeple you want at your event.</p>
+                                        <p className="intro">Get organized with calPal! The only app that lets you prioritize your personal schedule and add local events. Our open source model lets you share your events with the public so you can get the people you want at your event.</p>
 
                                         {/* <button class="fluid ui button">Sign Up Now {<Redirect to="/signup" />}</button> */}
 
