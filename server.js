@@ -64,10 +64,10 @@ if(process.env.NODE_ENV === 'production') {
 
 app.use(routes)
 app.use('/auth', require('./routes/auth'))
-// app.use('/static', express.static(path.join(__dirname, './client/build/static')))
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.join(__dirname, './client/build/'))
-//     });
+app.use('/static', express.static(path.join(__dirname, './client/build/static')))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, './client/build/'))
+    });
 
 // app.get('*', (request, response) => {
 //   response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
