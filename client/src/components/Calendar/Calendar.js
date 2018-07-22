@@ -59,16 +59,16 @@ class Calendar extends React.Component {
                 </Grid.Row>
                 <Grid.Row>
                     <Grid.Column width={5}>
-                      <p>Date: {this.state.date}</p>
-                      <p>Time: {this.state.time}</p>
+                      <p className= "modalP">Date: {this.state.date}</p>
+                      <p className= "modalP">Time: {this.state.time}</p>
                     </Grid.Column>
                     <Grid.Column width={5}>
-                      <p>Where to watch:</p>
-                      {this.state.watch.map(watch => <p key={watch}>{watch}</p>)}
+                      <p className= "modalP toWatch">Where to watch:</p>
+                      {this.state.watch.map(watch => <p className= "modalP" key={watch}>{watch}</p>)}
                     </Grid.Column>
                     <Grid.Column width={6}>
-                      <p>Website: <a className="link" href={`${this.state.link}`} target='blank'>{this.state.link}</a></p>
-                      <p>Additional Information: {this.state.info}</p>
+                      <p className= "modalP">Website: <a className="link" href={`${this.state.link}`} target='blank'>{this.state.link}</a></p>
+                      <p className= "modalP">Additional Information: {this.state.info}</p>
                     </Grid.Column>
                 </Grid.Row>
               </Grid>
