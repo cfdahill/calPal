@@ -48,7 +48,8 @@ class CalendarWrapper extends React.Component {
     })
     .then(res => res.json())
     .then(data => {
-      this.setState({checkBoxObject: data[0].savedEvents});
+      if (data[0].savedEvents) {
+        this.setState({checkBoxObject: data[0].savedEvents});
       // MLB Events
       const MLBEvents = data[0].savedEvents.filter(event => event.sport === "mlb");
       const MLBEventsArr = []
@@ -102,6 +103,8 @@ class CalendarWrapper extends React.Component {
         }
       ]
       this.renderSavedEvents(fullSportsArr)
+
+      }
     });
     //Get the names of all created schedules to push to created content dropdown
     API.getSchedules()
